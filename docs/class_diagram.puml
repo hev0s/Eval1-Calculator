@@ -11,6 +11,6 @@ class main{
  -ask_user_input():void
  -calculate(float:operand1, char:operator, float:operand2):float
  -display_result(float:operand1, char:operator, float:operand2, int:result):void
- -ask_user_float_input():float
+ -ask_user_float_input(string:message):float
 }
 @enduml
