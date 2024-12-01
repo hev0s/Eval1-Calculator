@@ -26,7 +26,7 @@ def calculate(ope1, oper, ope2):
         case '+':
             res = ope1 + ope2
         case '-':
-            res = ope2 - ope2
+            res = ope1 - ope2
         case '*':
             res = ope1 * ope2
         case '/':
