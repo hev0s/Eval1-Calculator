@@ -3,9 +3,7 @@ operator = None
 operand2 = None
 
 def main():
-    ask_user_input()
-    result = calculate(operand1, operator, operand2)
-    display_result(operand1, operator, operand2, result)
+    math_request = MathRequest()
 
 def ask_user_input():
     # Get first operand from the user
