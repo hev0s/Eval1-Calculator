@@ -1,46 +1,24 @@
-operand1 = None
-operator = None
-operand2 = None
+from MathRequest import MathRequest
 
 def main():
-    ask_user_input()
-    result = calculate(operand1, operator, operand2)
-    display_result(operand1, operator, operand2, result)
+    math_request = MathRequest()
 
-def ask_user_input():
-    # Get first operand from the user
-    global operand1
-    operand1 = float(input("Enter the first operand: "))
+    try:
+        # Demander les entrées utilisateur
+        math_request.ask_user_input()
 
-    global operator
-    # Get the operator from the user
-    operator = input("Enter an operator (+, -, *, /): ")
+        # Calculer le résultat
+        result = math_request.calculate()
 
-    global operand2
-    # Get second operand from the user
-    operand2 = float(input("Enter the second operand: "))
+        # Afficher le résultat en passant l'objet MathRequest
+        display_result(math_request, result)
+    except (ValueError, ZeroDivisionError) as e:
+        print(f"Error: {e}")
 
-def calculate(ope1, oper, ope2):
-    # Perform the operation based on the operator
-    match oper:
-        case '+':
-            res = ope1 + ope2
-        case '-':
-            res = ope2 - ope2
-        case '*':
-            res = ope1 * ope2
-        case '/':
-            if ope2 == 0:
-                print("Error: Division by zero is undefined.")
-                return
-            res = ope1 / ope2
-        case _:
-            print("Invalid operator.")
-            return
-    return res
+def display_result(math_request, result):
+    """Affiche le résultat en utilisant un objet MathRequest."""
+    print(f"{math_request.operand1} {math_request.operator} {math_request.operand2} = {result}")
 
-def display_result(op1, ope, ope2, res):
-    print(str(op1) + " " + ope + " " + str(ope2) + " = " + str(res))
-
-# Call the main function to run the program
-main()
+# Appeler la fonction principale
+if __name__ == "__main__":
+    main()
